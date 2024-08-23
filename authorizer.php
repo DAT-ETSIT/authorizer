@@ -1,15 +1,15 @@
 <?php
 /**
- * Plugin Name:       Authorizer
- * Plugin URI:        https://github.com/uhm-coe/authorizer
- * Description:       Authorizer limits login attempts, restricts access to specified users, and authenticates against external sources (e.g., OAuth2, Google, LDAP, or CAS).
- * Version:           3.9.1
+ * Plugin Name:       Authorizer DAT-ETSIT UPM
+ * Plugin URI:        https://github.com/DAT-ETSIT/authorizer
+ * Description:       Authorizer limits login attempts, restricts access to specified users, and authenticates against external sources (e.g., OAuth2, Google, LDAP, or CAS). 
+ * Version:           3.9.2
  * Requires at least: 4.9
  * Requires PHP:      7.4
- * Author:            Paul Ryan <prar@hawaii.edu>
+ * Author:            Pablo Fernández López <p.flopez@alumnos.upm.es>
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       authorizer
+ * Text Domain:       authorizer-dat-etsit-upm
  *
  * Portions forked from Restricted Site Access plugin:
  *   http://wordpress.org/plugins/restricted-site-access/
@@ -18,6 +18,13 @@
  * Portions forked from Limit Login Attempts:
  *   http://wordpress.org/plugins/limit-login-attempts/
  *
+ * This is a custom fork from:
+ *   https://github.com/uhm-coe/authorizer
+ * 
+ * Original author:
+ *   Paul Ryan <prar@hawaii.edu>
+ * 
+ * 
  * @package authorizer
  */
 

@@ -375,4 +375,22 @@ class OAuth2 extends \Authorizer\Singleton {
 
 		return $redirect_to;
 	}
+
+	/**
+	 * Restore any redirect_to value saved during an OAuth2 login (in the
+	 * `authenticate` hook). This is needed since the OAuth2 provider needs an
+	 * approved URI to visit after logging in, and cannot have a variable
+	 * redirect_to param in it like the normal WordPress redirect flow.
+	 *
+	 * @hook login_redirect
+	 *
+	 * @param string $redirect_to Destination URL.
+	 */
+	public function maybe_redirect_after_oauth2_login( $redirect_to ) {
+		if ( ! empty( $_SESSION['oauth2_redirect_to'] ) ) {
+			$redirect_to = sanitize_url( $_SESSION['oauth2_redirect_to'] );
+		}
+
+		return $redirect_to;
+	}
 }

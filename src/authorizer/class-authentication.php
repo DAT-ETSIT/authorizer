@@ -543,6 +543,19 @@ class Authentication extends Singleton {
 			}
 
 			session_start();
+
+			// Save the redirect URL for WordPress so we can restore it after a
+			// successful login (note: we can't add the redirect_to querystring
+			// param to the redirectUri param below because it won't match the
+			// approved URI set in the OAuth2 provider).
+			$login_querystring = array();
+			if ( isset( $_SERVER['QUERY_STRING'] ) ) {
+				parse_str( $_SERVER['QUERY_STRING'], $login_querystring ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+			}
+			if ( isset( $login_querystring['redirect_to'] ) ) {
+				$_SESSION['oauth2_redirect_to'] = $login_querystring['redirect_to'];
+			}
+
 			$provider = new \League\OAuth2\Client\Provider\GenericProvider( array(
 				'clientId'                => $auth_settings['oauth2_clientid'],
 				'clientSecret'            => $auth_settings['oauth2_clientsecret'],
